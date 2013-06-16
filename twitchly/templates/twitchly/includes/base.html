@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>{% block title %}Twitchly{% endblock %}</title>
+		
+		{% load staticfiles %}
+		
+		{% include 'twitchly/includes/shim.html' %}
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">    				
+		
+		<link href="//twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet"/>
+		<link href="//twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+		<link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+			
+    	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">    
+    
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js" ></script>
+    	<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="{% static 'twitchly/style.css' %}" />
+	
+	</head>
+	<body class="tight gray-background">
+		<div class="wrap">
+			
+			{% include 'twitchly/includes/header.html' %}
+		
+			{% block content %}{% endblock %}
+		
+		</div>
+		
+		{% include 'twitchly/includes/footer.html' %}												
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<header class="navbar navbar-fixed-top">
+	
+  <script>
+  	
+  function toggleDropdown() 
+  {  	
+  	if ($('#dropdown-trigger').is('.open')) 
+  	{
+     	$('#dropdown-trigger').removeClass('open');
+    }
+    else
+    {
+    	$('#dropdown-trigger').addClass('open');
+    }
+  }
+  	
+  	  
+  </script>
+  
+  <div class="navbar-inner">
+    <div class="container">      
+      <a id="logo" href="{% url 'twitchly:index' %}" >twitchly</a>
+      <nav>
+        <ul class="nav pull-right">
+          <li><a href="mailto:support@twitchly.com">Help</a></li> 
+          
+          <!--
+          <% if user_signed_in? %>          	          	          	         
+	          <li id="dropdown-trigger" class="dropdown">
+	          <div class="image-menu">
+	          	<%= image_tag("default-avatar.png",:size => "24x24") %>	          
+	          <% if( !current_user.name.nil? ) %>
+	          	<%= link_to current_user.name, '#'  %>
+	          <% elsif !current_user.email.nil? %>
+	          
+	            <a id="dLabel" class="dropdown-toggle header-menu-link" href="#" onclick="javascript:toggleDropdown()" role="button" data-toggle="dropdown" data-target="#"><%= current_user.email %></a>
+	          <% else %>
+	            <%= link_to 'My Account', '#'  %>
+	          <% end %>
+	          
+	          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			    <li><a tabindex="-1" href="#">My Workouts</a></li>
+			    <li><a tabindex="-1" href="#">My Account</a></li>			    
+			    <li class="divider"></li>
+			    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>   
+			    </ul>
+			    
+			  </div>
+			  </li> 
+			 
+	      <% end %>
+                     
+          <% if !user_signed_in? %>          	                               
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>        
+          -->
+          <!--
+          <li><a href="{% url 'twitchly:index' %}" >Sign In</a></li>
+          -->
+            
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

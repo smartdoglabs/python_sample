@@ -1,0 +1,40 @@
+{% extends "twitchly/includes/base_white.html" %}
+		
+{% block title %}Find a training partner | Twitchly{% endblock %}
+
+{% block content %}
+<div class='main-header'>
+		<div class="container">
+			<div class="row">
+				<div class="span7 slogan">
+					<h1>You don't have to climb this alone. <br/>Find a training partner today!</h1>
+					<p><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-large">Request an Invite</a></p>	
+				</div>
+			</div>	
+		</div>
+</div>
+<div class="header-bottom-bar "></div>
+<div class="container main-content">
+	
+	<br/>
+	<h1>Introducing Twitchly</h1>
+	<h2>Twitchly helps you discover new training partners, clubs, coaches and events.</h2>
+	
+	<br/>
+	<center>
+			
+	<iframe width="480" height="360" src="http://www.youtube.com/embed/ByUao7-QJY8" frameborder="0" allowfullscreen></iframe>
+	
+	<br/><br/>
+	<div>							
+		<a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-large">Request an Invite</a>
+	</div>
+	</center>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	
+</div>		
+{% endblock %}
+		
+		
