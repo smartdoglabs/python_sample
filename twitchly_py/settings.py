@@ -1,6 +1,8 @@
 # Django settings for twitchly_py project.
 import os.path
 
+import dj_database_url
+
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
@@ -23,6 +25,11 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
