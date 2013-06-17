@@ -1,1 +1,1 @@
-web: gunicorn twitchly_py.wsgi
+web: python twitchly_py/manage.py collectstatic --noinput;gunicorn twitchly_py.wsgi
