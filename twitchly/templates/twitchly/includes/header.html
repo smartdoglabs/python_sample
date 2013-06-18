@@ -23,8 +23,13 @@
       <a id="logo" href="{% url 'twitchly:index' %}" >twitchly</a>
       <nav>
         <ul class="nav pull-right">
-          <li><a href="mailto:support@twitchly.com">Help</a></li> 
-          
+          <li><a href="mailto:support@twitchly.com">Help</a></li>
+           
+          {% if user.is_authenticated %}
+          	<li><a href="{% url 'twitchly:logout' %}">Sign Out</a></li>
+          {% else %} 
+          	<li><a href="{% url 'twitchly:login' %}">Sign In</a></li>
+          {% endif %}
           <!--
           <% if user_signed_in? %>          	          	          	         
 	          <li id="dropdown-trigger" class="dropdown">

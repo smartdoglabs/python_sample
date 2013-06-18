@@ -263,6 +263,69 @@ footer ul li {
   box-sizing: border-box;
 }
 
+.recommendations {  
+  padding-top: 10px;
+}
+
+.recommendations  h3 {
+    text-align: left;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.single-box-in-page {
+ 
+  padding-top:100px;  
+}
+
+.home-introduction { 
+  float:left; 
+}
+
+.home-introduction h1 {
+    text-align: left;
+    font-size: 28px;
+    margin-bottom: 14px;
+    margin-top: 5px;
+}
+  
+.home-introduction h2 {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 0px;
+    letter-spacing: 0px;
+}
+
+.circle {
+  height: 275px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: table !important;
+  box-shadow: 1px 1px 1px rgba(34, 25, 25, 0.4);
+}
+
+.circle .title {
+    margin-bottom: 10px;
+    line-spacing: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.circle .avatar {
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}    
+  
+.circle .bottom-row {
+    display: table-row;
+    height: 25px;
+}
+
 
 /*Opera Fix*/
 body:before {/* thanks to Maleika (Kohoutec)*/

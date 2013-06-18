@@ -1,0 +1,266 @@
+{% extends "twitchly/includes/base.html" %}
+		
+{% block title %}Find a training partner | Twitchly{% endblock %}
+
+{% block content %}
+
+	<div class="container main-content">
+		<div class="home-introduction">
+			<h1>
+				Welcome back {{ user.email }}
+				<!-- <% if current_user.has_role? :coach %>
+	  				(Coach)
+				<% end %> -->			
+			</h1>									
+			<h2>Here are your training recommendations based on your activity.</h2>
+		</div>
+		<div style="float:right;padding-top:10px;padding-right:10px">
+			<!-- <%= link_to('Add a Workout', "workouts/new", :class => "btn btn-primary btn-medium" )  %> -->
+			<a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Add a Workout</a>
+			<!--<%= link_to('Import Workouts', "workouts/new", :class => "btn btn-primary btn-medium" )  %>-->
+			<a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Import Workouts</a>
+		</div>
+		<br/>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="row-fluid">					
+					<div class="recommendations">
+						
+						<h3>Morning Sessions</h3>			
+						<div class="row-fluid">
+							<div class="span3 box circle">
+								
+								<div class="title">Precision CompuTrainer</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>										
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h3.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h5.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h6.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/tovi.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h7.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h8.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>
+							
+							<div class="span3 box circle">
+								
+								<div class="title">10K Lincoln Park Run</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h3.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>						
+								</div>					
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>						
+							
+							<div class="span3 box circle">
+								
+								<div class="title">Evanston Master Swim</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h3.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h5.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h6.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/tovi.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h5.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h7.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h8.jpg"/>
+									</div>												
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid">						
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h5.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h6.jpg"/>
+									</div>
+								</div>						
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>	
+							
+							<div class="span3 box circle">
+								
+								<div class="title">Highland Park Bike</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>											
+								</div>					
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>							
+														
+							
+						</div>
+					</div>
+				</div>
+				<div class="row-fluid">					
+					<div class="recommendations">
+						
+						<h3>Afternoon Sessions</h3>			
+						<div class="row-fluid">
+							<div class="span3 box circle">
+								
+								<div class="title">Precision CompuTrainer</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h3.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h5.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h6.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/tovi.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h7.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h8.jpg"/>
+									</div>
+								</div>
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>
+							
+							<div class="span3 box circle">
+								
+								<div class="title">10K Lincoln Park Run</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h3.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h4.jpg"/>
+									</div>						
+								</div>					
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>						
+																	
+							
+							<div class="span3 box circle">
+								
+								<div class="title">Highland Park Bike</div>
+								<div class="row-fluid">
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/jose.jpg"/>
+									</div>
+									<div class="span2 avatar">
+										<img width="32" height="32" src="{{STATIC_URL}}twitchly/images/sample-avatars/h2.jpg"/>
+									</div>											
+								</div>					
+								<div class="row-fluid bottom-row">
+									<center><a href="{% url 'twitchly:invite' %}" class="btn btn-primary btn-medium">Join</a></center>
+								</div>
+							</div>		
+							
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+			
+		</div>
+		
+	</div>
+	
+
+{% endblock %}
+		
+		
