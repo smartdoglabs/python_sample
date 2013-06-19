@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^logout$', views.logout_user, name='logout'),
     
     url(r'^discover$', views.discover, name='discover'),
+    
+    url(r'^workouts/manual$', views.manual_workout, name='manual'),
+    
     # ex: /polls/5/
     #url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
     # ex: /polls/5/results/

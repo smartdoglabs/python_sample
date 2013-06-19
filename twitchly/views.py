@@ -1,16 +1,20 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,render
 from django.template import RequestContext
 from django.views.generic.edit import CreateView
-from django.forms import ModelForm
-from django import forms
+
 from django.core.urlresolvers import reverse_lazy,reverse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
+from twitchly.forms import BetaInviteForm,ManualWorkoutForm
 from twitchly.models import BetaInvite
+from twitchly.models import Workout
+
+from datetime import datetime
+from django.utils.timezone import utc
 
 def logout_user(request):
     logout(request)
@@ -28,33 +32,58 @@ def discover(request):
 def invite_thanks(request):
     return HttpResponse(render_to_response('twitchly/betainvite_success.html',{},context_instance=RequestContext(request)) )
     
-class BetaInviteForm(ModelForm):
-    class Meta:
-        model = BetaInvite
-        fields = ['email']
-    
-    def __init__(self, *args, **kwargs):            
-        super(BetaInviteForm, self).__init__(*args, **kwargs)
-        self.fields['email'].widget.attrs['placeholder'] = u'Email'
-        self.fields['email'].widget.attrs['autofocus'] = u'autofocus'
-        
-        
-    def clean(self):
-        cleaned_data = super(BetaInviteForm,self).clean()
-        
-        if( 'email' in cleaned_data ):
-            email_addr = cleaned_data['email']
-        
-            invited = BetaInvite.objects.filter(email=email_addr)
-        
-            if( invited.exists() ):
-                raise forms.ValidationError("Settle down! We already have your invite request. Tell your friends!")
-
-        return cleaned_data
-        
-    
+         
 class BetaInviteCreate(CreateView):
     model = BetaInvite
     fields = ['email']
     form_class = BetaInviteForm
     success_url=reverse_lazy('twitchly:invite_thanks')
+    
+def manual_workout(request):
+    if request.method == 'POST':
+        form = ManualWorkoutForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            
+            #Create model and save it        
+            workout = Workout()
+            workout.name = cd['name']
+            workout.type = cd['type']
+            
+            if( cd['distance'] is not None ):
+                workout.distance = cd['distance']
+                        
+            dur_hh = cd['duration_hh']
+            if( dur_hh is None ):
+                dur_hh = 0
+            
+            dur_mm = cd['duration_mm']
+            if( dur_mm is None ):
+                dur_mm = 0
+                
+            dur_ss = cd['duration_ss']
+            if( dur_ss is None ):
+                dur_ss = 0
+                
+            workout.duration = dur_ss + (dur_mm * 60) + (dur_hh * 3600 )
+                
+            
+            workout_date = cd['workout_date']
+            
+            date_str = str(workout_date) + " " + str(cd['workout_date_hh']) + ":" + str(cd['workout_date_mm']) + " " + cd['workout_date_ampm']   
+            date = datetime.strptime(date_str,"%Y-%m-%d %I:%M %p")
+            date = date.replace(tzinfo=utc)       
+                 
+            workout.workout_date = date
+            
+            workout.user = request.user
+                
+            workout.save()
+            
+            return HttpResponseRedirect(reverse('twitchly:discover'))
+        else:
+            #Invalid form
+            return render(request, 'twitchly/workouts/manual.html', {'form': form})
+    else:
+        form = ManualWorkoutForm()
+        return render(request, 'twitchly/workouts/manual.html', {'form': form})
