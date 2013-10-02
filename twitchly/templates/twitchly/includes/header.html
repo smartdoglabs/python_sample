@@ -21,14 +21,14 @@
   <div class="navbar-inner">
     <div class="container">      
       <a id="logo" href="{% url 'twitchly:index' %}" >twitchly</a>
-      <nav>
-        <ul class="nav pull-right">
-          <li><a href="mailto:support@twitchly.com">Help</a></li>
+      <nav class="nav pull-right" role="navigation">
+        
+          <a href="mailto:support@twitchly.com">Help</a>
            
           {% if user.is_authenticated %}
-          	<li><a href="{% url 'twitchly:logout' %}">Sign Out</a></li>
+          	<a href="{% url 'twitchly:logout' %}">Sign Out</a>
           {% else %} 
-          	<li><a href="{% url 'twitchly:login' %}">Sign In</a></li>
+          	<a href="{% url 'twitchly:login' %}">Sign In</a>
           {% endif %}
           <!--
           <% if user_signed_in? %>          	          	          	         
@@ -63,8 +63,7 @@
           <!--
           <li><a href="{% url 'twitchly:index' %}" >Sign In</a></li>
           -->
-            
-        </ul>
+                    
       </nav>
     </div>
   </div>
